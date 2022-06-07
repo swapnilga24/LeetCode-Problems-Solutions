@@ -1,0 +1,31 @@
+
+https://leetcode.com/problems/shuffle-the-array/
+
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+     
+        int res[]= new int[2*n];
+        int j=n;
+        int i=0;
+        int k=0;
+        // while(i<2*n){
+        //     if(i%2 ==0){
+        //         res[i]=nums[k];
+        //         i++;   
+        //         k++;
+        //     }else{
+        //         res[i]=nums[j];
+        //         i++;
+        //         j++;
+        //     }
+        // }
+        
+        while(i<n){
+            res[2*i]=nums[i];
+            res[2*i+1]=nums[n+i];
+            i++;
+        }
+        
+        return res;
+    }
+}
