@@ -1,0 +1,43 @@
+class HelloWorld {
+    public static int search(int arr[],int low,int high,int target){
+        int res=-1;
+        while(low<=high){
+            int mid = low+(high-low)/2;
+            if(arr[mid] == target){
+                res=mid;
+                break;
+            }
+            if(arr[mid]<target){
+                low=mid+1;
+                res=mid;
+            }
+            if(arr[mid]>target){
+                high=mid-1;
+            }
+        }
+        return res;
+    }
+
+    public static void main(String[] args) 
+    {
+        int arr[] = new int[]{2, 5, 10, 12, 15};
+        int target = 11;
+        int low=0;
+        int high=arr.length-1;
+        int res = search(arr,low,high,target);
+        //System.out.print("res::"+res);
+        int a=arr[res]-target;
+        int b=arr[(res+1)%arr.length]-target;
+        if(a<0){
+            a=a*-1;
+        }
+        if(b<0){
+            b=b*-1;
+        }
+        if(a<b){
+            System.out.print("a::"+arr[res]);
+        }else{
+            System.out.print("b::"+arr[res+1]);
+        }
+    }
+}
